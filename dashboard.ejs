@@ -1,0 +1,21 @@
+<h1>Staff Applications</h1>
+
+<% apps.forEach(app => { %>
+
+<div style="border:1px solid black; padding:10px; margin:10px;">
+<p><b>User:</b> <%= app.userId %></p>
+<p><b>Status:</b> <%= app.status %></p>
+
+<pre><%= JSON.stringify(app.answers, null, 2) %></pre>
+
+<form method="POST" action="/accept/<%= app.userId %>">
+<button>Accept</button>
+</form>
+
+<form method="POST" action="/deny/<%= app.userId %>">
+<button>Deny</button>
+</form>
+
+</div>
+
+<% }) %>
